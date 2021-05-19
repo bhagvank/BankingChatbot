@@ -1,0 +1,39 @@
+<html>
+    {% load static %}
+<head>
+       
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'notes/styles.css' %}">
+
+       </head>     
+   <body>
+<div class="container">       
+<form method="post" action="/notes/uploadProfile/" enctype="multipart/form-data">
+{% csrf_token %}
+    
+ <div class="row">    
+    <div class="col-25">
+        <label for="lname">Resume</label>
+      </div>
+    <div class="col-75">
+     <input type="file" name="dbfile">
+     </div>
+</div>     
+    
+    
+ <div class="row">  
+  <div class="col-25">
+      <p> &nbsp</p>
+     </div>
+  <div class="col-25">     
+   <input type="submit" value="Upload">
+     </div>      
+    </div>    
+</form>
+    
+</div>    
+{% if uploaded_file_url %}
+<p>File upload location: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+<link href="http://codepen.io/edbond88/pen/CcgvA.css" media="screen" rel="stylesheet" type="text/css" />
+            <style>
+            body {
+              background: rgba(222,222,222,1);
+              margin: 20px;
+            }
+            </style>
+
+        </head>
+ 
+        <body>
+          <h2>Candidates</h2>
+          <ul>
+          {% for user in users.all %}
+            <aside class="note-wrap note-white">  
+             <li>{{ user.firstname }} {{ user.lastname }}</li>
+            </aside>
+          {% endfor %}
+        </ul>
+    
+
+        </body>
+    </html>

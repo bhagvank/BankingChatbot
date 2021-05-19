@@ -1,0 +1,73 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<head>
+    
+    <script src="{% static 'notes/js/jquery.min.js' %}"></script>
+    <script src="{% static 'notes/js/popper.min.js'%}"></script>
+    <script src="{% static 'notes/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'notes/js/custom.js' %}"></script>
+<link rel="stylesheet" href="{% static 'notes/css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'notes/css/custom.min.css' %}"> 
+<link rel="stylesheet" href="{% static 'notes/css/menu.css' %}">      
+    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>AI Recruiter</title>
+</head>
+
+<body>
+
+ <div class="topnav">
+  <a class="active" href="/notes/signup">Register</a>
+   
+</div>     
+<div class="container">
+
+     
+  
+ 
+<div class="bs-docs-section">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="page-header">
+              <h1 id="forms">Login</h1>
+            </div>
+          </div>
+        </div>
+
+    <br>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="bs-component">
+              <form action="/notes/authenticate/" method="post">
+                {% csrf_token %}
+                <fieldset>
+                  <div class="form-group">
+                    <label for="useremail">Email address</label>
+                    <input type="email" class="form-control" id="useremail" name="useremail" aria-describedby="emailHelp" placeholder="Enter email">
+                    {%  if error_useremail == None  %}
+                     <small id="emailHelp" class="form-text text-muted">  </small>
+                    {% else %}
+                    <small id="emailHelp" class="form-text text-muted"> {{ error_useremail }} </small>
+                    {% endif %}
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="Password">
+                    {% if error_password == None %}
+                     <small id="passwordHelp" class="form-text text-muted"></small>
+                    {% else %}
+                    <small id="passwordHelp" class="form-text text-muted">{{ error_password }}</small>
+                    {% endif %}
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+              </fieldset>
+            </form>
+           </div>
+         </div>
+       </div>
+</div>        
+</div>
+ </body>
+ </html>               
